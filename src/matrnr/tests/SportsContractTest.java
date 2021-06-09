@@ -4,6 +4,7 @@ import matrnr.Sports;
 import matrnr.Test;
 import matrnr.TestResult;
 import matrnr.utils.Methods;
+import matrnr.utils.Misc;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -24,16 +25,16 @@ public class SportsContractTest extends Test {
     }
 
     private static boolean getFeeFactorConformsContract() {
-        return BigDecimal.ONE.equals(Sports.ARCHERY.getFeeFactor())
-            && BigDecimal.ONE.equals(Sports.BASKETBALL.getFeeFactor())
-            && new BigDecimal("1.2").equals(Sports.CLIMBING.getFeeFactor())
-            && new BigDecimal("1.8").equals(Sports.DIVING.getFeeFactor())
-            && BigDecimal.ONE.equals(Sports.FOOTBALL.getFeeFactor())
-            && new BigDecimal("2.1").equals(Sports.GOLF.getFeeFactor())
-            && BigDecimal.ONE.equals(Sports.HANDBALL.getFeeFactor())
-            && BigDecimal.ONE.equals(Sports.HOCKEY.getFeeFactor())
-            && BigDecimal.ONE.equals(Sports.MOUNTAINBIKING.getFeeFactor())
-            && BigDecimal.ONE.equals(Sports.PARKOUR.getFeeFactor());
+        return Misc.bdEq(BigDecimal.ONE, Sports.ARCHERY.getFeeFactor())
+            && Misc.bdEq(BigDecimal.ONE, Sports.BASKETBALL.getFeeFactor())
+            && Misc.bdEq(new BigDecimal("1.2"), Sports.CLIMBING.getFeeFactor())
+            && Misc.bdEq(new BigDecimal("1.8"), Sports.DIVING.getFeeFactor())
+            && Misc.bdEq(BigDecimal.ONE, Sports.FOOTBALL.getFeeFactor())
+            && Misc.bdEq(new BigDecimal("2.1"), Sports.GOLF.getFeeFactor())
+            && Misc.bdEq(BigDecimal.ONE, Sports.HANDBALL.getFeeFactor())
+            && Misc.bdEq(BigDecimal.ONE, Sports.HOCKEY.getFeeFactor())
+            && Misc.bdEq(BigDecimal.ONE, Sports.MOUNTAINBIKING.getFeeFactor())
+            && Misc.bdEq(BigDecimal.ONE, Sports.PARKOUR.getFeeFactor());
     }
 
     private static boolean getFeeConformsContract() {
@@ -43,9 +44,9 @@ public class SportsContractTest extends Test {
 
         for (Sports s : Sports.values()) {
             if (
-                !random1.multiply(s.getFeeFactor()).equals(s.getFee(random1))
-                    || !random2.multiply(s.getFeeFactor()).equals(s.getFee(random2))
-                    || !random3.multiply(s.getFeeFactor()).equals(s.getFee(random3))
+                !Misc.bdEq(random1.multiply(s.getFeeFactor()), s.getFee(random1))
+                    || !Misc.bdEq(random2.multiply(s.getFeeFactor()), s.getFee(random2))
+                    || !Misc.bdEq(random3.multiply(s.getFeeFactor()), s.getFee(random3))
             ) {
                 return false;
             }

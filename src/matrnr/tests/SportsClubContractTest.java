@@ -83,7 +83,7 @@ public class SportsClubContractTest extends Test {
 
         result.testedObject(sc);
 
-        return feePerSports.equals(sc.getFeePerSports());
+        return Misc.bdEq(feePerSports, sc.getFeePerSports());
     }
 
     private static boolean getMembersReturnsMembers(TestResult.Builder result) {
@@ -152,7 +152,7 @@ public class SportsClubContractTest extends Test {
 
         BigDecimal actual = sc.calculateMembershipFee(toTest);
 
-        return expected.equals(actual);
+        return Misc.bdEq(expected, actual);
     }
 
     private static boolean registerSportsThrowsException(TestResult.Builder result) {

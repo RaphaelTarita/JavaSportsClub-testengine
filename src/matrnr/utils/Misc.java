@@ -3,6 +3,7 @@ package matrnr.utils;
 import matrnr.Level;
 import matrnr.Sports;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -40,5 +41,9 @@ public class Misc {
 
     public static Map<Sports, Level> getRandomSportsMap() {
         return getRandomSportsMap(0.5);
+    }
+
+    public static boolean bdEq(BigDecimal lop, BigDecimal rop) {
+        return lop.compareTo(rop) == 0;
     }
 }
