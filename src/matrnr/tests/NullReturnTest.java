@@ -15,7 +15,10 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public abstract class NullReturnTest extends Test {
+    private static final String EQUALS = "equals";
+    private static final String COMPARE_TO = "compareTo";
     private final Supplier<Object> testable;
+    private final Class<?> subject;
 
     private static Set<Method> filterApplicable(Class<?> toTest, Set<String> excludes) {
         return Arrays.stream(toTest.getDeclaredMethods())
@@ -33,15 +36,19 @@ public abstract class NullReturnTest extends Test {
             filterApplicable(toTest, C.checkAll(excludes)),
             Set.of()
         );
-        C.check(toTest);
+        subject = C.check(toTest);
         testable = () -> DefaultObjects.get(toTest);
     }
 
     private void testReturnBehaviour(Method m, TestResult.Builder res) {
         Class<?>[] parameterTypes = m.getParameterTypes();
         List<Object> defaults = new ArrayList<>(parameterTypes.length);
-        for (Class<?> p : parameterTypes) {
-            defaults.add(DefaultObjects.get(p));
+        if (EQUALS.equals(m.getName()) || COMPARE_TO.equals(m.getName())) {
+            defaults.add(DefaultObjects.get(subject));
+        } else {
+            for (Class<?> p : parameterTypes) {
+                defaults.add(DefaultObjects.get(p));
+            }
         }
 
         boolean fail = false;
