@@ -1,0 +1,12 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+# source files
+/**/Member.java
+/**/SportsClub.java
+/**/Trainer.java
+/**/Level.java
+/**/Sports.java
