@@ -63,11 +63,12 @@ public abstract class NullParameterTest extends Test {
                 res.expected(targetExc);
             } else {
                 res.failure()
-                    .unexpected(targetExc)
-                    .appendNote("\nunexpected Exception caught by '" + exec.getName() + '\'');
-            }
-            if (targetExc instanceof NullPointerException) {
-                res.appendNote("\nNullPointerException caught by '" + exec.getName() + '\'');
+                    .unexpected(targetExc);
+                if (targetExc instanceof NullPointerException) {
+                    res.appendNote("\nNullPointerException caught by '" + exec.getName() + '\'');
+                } else {
+                    res.appendNote("\nunexpected Exception caught by '" + exec.getName() + '\'');
+                }
             }
         } catch (InstantiationException ex) {
             throw new UnsupportedOperationException("Cannot nullcheck because constructor invocation failed", ex);
