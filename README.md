@@ -2,7 +2,7 @@
 
 A test engine for the SportsClub project, which is a task in the SS2021 PR2 course (UNIVIE)
 
-This test engine is intended to be used as a test routine to validate an implementation of the SportsClub project. **It does not contain any of the actual implementations of SportsClub**. It is furthermore not guaranteed that this test engine will identify all bugs, nor that it doesn't contain bugs itself. Therefore, if the test engine reports no test failures, this **does not** mean that your implementation is correct, and vice versa, a reported error might hint at a bug in the test engine and **not in your code**.
+This test engine is intended to be used as a test routine to validate an implementation of the SportsClub project. **It does not contain any of the actual implementations of SportsClub** (for the implementation, see [PR2_sportsclub](https://github.com/RaphaelTarita/PR2_sportsclub)). It is furthermore not guaranteed that this test engine will identify all bugs, nor that it doesn't contain bugs itself. Therefore, if the test engine reports no test failures, this **does not** mean that your implementation is correct, and vice versa, a reported error might hint at a bug in the test engine and **not in your code**.
 
 #### If you have any questions, contact me on discord: Raph0007#3276
 
