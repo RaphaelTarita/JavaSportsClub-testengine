@@ -30,7 +30,7 @@ Because the root package for every student is different, I cannot provide a solu
 
 1. Rename all your package declarations to `matrnr`. Since it's only 5 files and therefore 5 package declarations, this should be fairly easy
   
-2. Refactor the package root of the test engine to `a<matrikelnummer>`. Considering that the test engine has a total of 39 files and import relations between them, I wouldn't recommend to do this without IDE support (IDE refactoring should work fine).
+2. Refactor the package root of the test engine to `a<matrikelnummer>`. Considering that the test engine has a total of 39 files and import relations between them, I wouldn't recommend doing this without IDE support (IDE refactoring should work fine).
   
 
 After your code resides in `src/matrnr/`, you can continue to write your testing routine
